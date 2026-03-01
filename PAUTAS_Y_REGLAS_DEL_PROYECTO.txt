@@ -1,0 +1,635 @@
+================================================================================
+             PAUTAS Y REGLAS DEL PROYECTO "CASOS REALES"
+        (Guía para recrear o continuar el proyecto en el futuro)
+================================================================================
+
+Fecha de creación: Enero 2025
+Versión: 1.0
+
+================================================================================
+FILOSOFÍA PRINCIPAL DEL PROYECTO
+================================================================================
+
+1. LAS VÍCTIMAS SON EL CENTRO, NO LOS CRIMINALES
+   - Nunca glorificamos a los asesinos
+   - Los criminales solo se mencionan para dar contexto
+   - El foco siempre está en recordar a las víctimas como PERSONAS
+
+2. DIGNIDAD ANTE TODO
+   - No usamos fotos sensacionalistas
+   - No describimos detalles morbosos innecesarios
+   - Tratamos cada caso con respeto
+
+3. INCLUSIVIDAD
+   - El lenguaje es inclusivo (no solo femenino ni solo masculino)
+   - Incluimos víctimas de todos los géneros
+   - Casos de múltiples países y culturas
+
+================================================================================
+ESTRUCTURA DE LA PÁGINA PRINCIPAL (HOME)
+================================================================================
+
+ORDEN DE SECCIONES:
+
+1. HERO (Cabecera)
+   - Título principal
+   - Subtítulo con la misión del sitio
+   - Botón de llamada a la acción
+
+2. CASOS DESTACADOS
+   - Muestra casos con "featured: true" en la base de datos
+   - Tarjetas con imagen, título, resumen corto
+
+3. EXPLORAR POR CATEGORÍA
+   - Filtros por tipo: Homicidio, Desaparición, Serial Killer, etc.
+   - Filtros por estado: Resuelto / Sin resolver
+   - Filtros por país
+
+4. CASOS RECIENTES
+   - Los últimos casos añadidos
+
+5. IN MEMORIAM (Al final de la página)
+   ┌─────────────────────────────────────────────────────────────┐
+   │  Ubicación: ABAJO DE TODO, antes del footer                │
+   │                                                             │
+   │  Contenido:                                                 │
+   │  - Título: "In Memoriam"                                    │
+   │  - Texto reflexivo (NO galería de fotos)                    │
+   │                                                             │
+   │  Frases que usamos:                                         │
+   │  "Merecen ser recordados por quiénes fueron,               │
+   │   no por lo que les hicieron."                              │
+   │                                                             │
+   │  "Eran parte de una familia, tenían amigos que los         │
+   │   querían."                                                 │
+   │                                                             │
+   │  "No son casos. Son personas."                              │
+   │                                                             │
+   │  IMPORTANTE: Texto inclusivo, no solo dirigido a mujeres   │
+   └─────────────────────────────────────────────────────────────┘
+
+6. FOOTER
+   - Links de navegación
+   - Información del sitio
+   - Disclaimer legal
+
+================================================================================
+ESTRUCTURA DE CADA PÁGINA DE CASO
+================================================================================
+
+ORDEN DE SECCIONES EN /casos/[slug]:
+
+1. CABECERA DEL CASO
+   - Imagen principal
+   - Título del caso
+   - Badges: País, Año, Estado (Resuelto/Sin resolver), Tipo
+   - Resumen corto
+
+2. CONTENIDO PRINCIPAL
+   - Historia completa del caso (en markdown)
+   - Qué pasó, cómo se investigó, resultado
+
+3. VÍCTIMAS (Sección muy importante)
+   ┌─────────────────────────────────────────────────────────────┐
+   │  Cada víctima tiene su propia tarjeta con:                 │
+   │                                                             │
+   │  DATOS BÁSICOS:                                             │
+   │  - Nombre completo                                          │
+   │  - Foto (o placeholder respetuoso)                          │
+   │  - Edad                                                     │
+   │  - Fecha de nacimiento / muerte / desaparición              │
+   │                                                             │
+   │  HISTORIA DE VIDA DETALLADA:                                │
+   │  - Personalidad: Cómo era como persona                      │
+   │  - Familia: Padres, hermanos, contexto familiar             │
+   │  - Educación: Dónde estudiaba, materias favoritas           │
+   │  - Trabajo: En qué trabajaba (si aplicaba)                  │
+   │  - Pasatiempos: Qué le gustaba hacer                        │
+   │  - Talentos: En qué era bueno/a                             │
+   │  - Sueños: Qué quería ser, qué planes tenía                 │
+   │  - Vida social: Amigos, pareja                              │
+   │                                                             │
+   │  CITAS TEXTUALES:                                           │
+   │  - Citas de familiares: "Era la luz de nuestra vida..."    │
+   │  - Citas de amigos: "Siempre estaba sonriendo..."          │
+   │                                                             │
+   │  RESUMEN DE VIDA:                                           │
+   │  - 2-3 párrafos que resumen quién era la persona           │
+   │  - Escrito con respeto y humanidad                          │
+   └─────────────────────────────────────────────────────────────┘
+
+4. LÍNEA DE TIEMPO
+   - Eventos ordenados cronológicamente
+   - Fecha + Título + Descripción
+   - Desde la desaparición/crimen hasta el resultado
+
+5. SOSPECHOSOS / PERPETRADORES
+   - Solo información factual
+   - Rol: Sospechoso, Confirmado, Persona de interés
+   - Condena (si la hay)
+   - NO glorificamos, solo informamos
+
+6. EVIDENCIA
+   - Pruebas del caso
+   - Tipo: Física, Testimonial, Forense, Digital
+   - Nivel de credibilidad
+
+7. IMPACTO DEL CASO
+   ┌─────────────────────────────────────────────────────────────┐
+   │  CAMBIOS LEGISLATIVOS:                                      │
+   │  - Nombre de la ley creada (ej: "Ley Megan")               │
+   │  - Año de aprobación                                        │
+   │  - Qué hace la ley                                          │
+   │                                                             │
+   │  FUNDACIONES CREADAS:                                       │
+   │  - Nombre de la fundación                                   │
+   │  - URL del sitio web                                        │
+   │  - Qué hace la fundación                                    │
+   │                                                             │
+   │  IMPACTO EN LA COMUNIDAD:                                   │
+   │  - Cómo afectó a la sociedad                                │
+   │  - Cambios en la conciencia pública                         │
+   │                                                             │
+   │  CAMBIOS EN PROTOCOLOS:                                     │
+   │  - Nuevos procedimientos policiales                         │
+   │  - Mejoras en investigaciones                               │
+   │  - Cambios en sistemas de alerta                            │
+   │                                                             │
+   │  ADAPTACIONES MEDIÁTICAS:                                   │
+   │  - Películas basadas en el caso                             │
+   │  - Documentales                                             │
+   │  - Libros                                                   │
+   │  - Podcasts                                                 │
+   │  - Series de TV                                             │
+   │  (Cada una con: tipo, título, año, descripción)            │
+   └─────────────────────────────────────────────────────────────┘
+
+8. SISTEMA DE TRIBUTOS
+   ┌─────────────────────────────────────────────────────────────┐
+   │  Los visitantes pueden:                                     │
+   │  - "Encender una vela virtual" 🕯️                          │
+   │  - Dejar un mensaje de recuerdo                             │
+   │  - Poner su nombre (opcional)                               │
+   │  - Indicar su país (opcional)                               │
+   │                                                             │
+   │  Se muestra:                                                 │
+   │  - Contador de velas encendidas                             │
+   │  - Mensajes recientes de visitantes                         │
+   │  - Animación suave de velas                                 │
+   └─────────────────────────────────────────────────────────────┘
+
+9. FUENTES
+   - Links a artículos, documentos, reportajes
+   - Nivel de confiabilidad: Alta, Media, Baja
+
+10. CASOS SIMILARES (Al final)
+    - Casos relacionados por:
+      * Mismo país
+      * Mismo tipo de crimen
+      * Misma época
+    - Tarjetas pequeñas con link a cada caso
+
+================================================================================
+ESTRUCTURA DE LA BASE DE DATOS
+================================================================================
+
+MODELO: Case (Caso)
+────────────────────
+- id: Identificador único
+- slug: URL amigable (ej: "crimen-alcasser")
+- title: Título del caso
+- titleSearch: Título sin tildes para búsqueda
+- summary: Resumen corto
+- status: "SOLVED" o "UNSOLVED"
+- type: "HOMICIDE", "DISAPPEARANCE", "SERIAL_KILLER", "COLD_CASE", "KIDNAPPING", "OTHER"
+- year: Año del crimen
+- country: País
+- countrySearch: País sin tildes
+- city: Ciudad
+- citySearch: Ciudad sin tildes
+- mainImageUrl: Imagen principal
+- gallery: JSON con más imágenes
+- tags: JSON con etiquetas
+- content: Historia completa (markdown)
+- viewCount: Contador de visitas
+- featured: Si aparece en destacados
+
+MODELO: Victim (Víctima)
+────────────────────────
+IDENTIDAD:
+- fullName: Nombre completo
+- fullNameSearch: Nombre sin tildes
+- aliases: Apodos cariñosos (JSON)
+- birthDate: Fecha de nacimiento
+- birthPlace: Lugar de nacimiento
+- nationality: Nacionalidad
+
+FAMILIA:
+- parents: Nombres de los padres
+- parentsOccupation: Trabajo de los padres
+- siblings: Hermanos
+- familyInfo: Info adicional de familia
+- familyBackground: Contexto familiar
+
+EDUCACIÓN Y TRABAJO:
+- education: Estudios
+- educationDetails: Detalles de educación
+- occupation: Trabajo
+- workplaceInfo: Info del trabajo
+- careerDreams: Aspiraciones profesionales
+
+PERSONALIDAD:
+- personality: Cómo era como persona
+- physicalDescription: Descripción física
+- hobbies: Pasatiempos
+- talents: Talentos especiales
+- favoriteThings: Cosas favoritas
+- dreams: Sueños y metas
+- accomplishments: Logros
+
+VIDA SOCIAL:
+- socialLife: Vida social
+- bestFriends: Mejores amigos
+- relationship: Pareja
+- pets: Mascotas
+
+CITAS:
+- familyQuotes: Citas de familiares (JSON)
+- friendsQuotes: Citas de amigos (JSON)
+- teacherQuotes: Citas de profesores
+
+ÚLTIMO DÍA:
+- lastSeenDate: Última vez vista
+- lastSeenPlace: Último lugar
+- lastSeenDetails: Detalles del último día
+- lastSeenWearing: Qué ropa llevaba
+- lastKnownActivities: Últimas actividades
+
+ESTADO:
+- ageAtDeathOrMissing: Edad
+- deathDate: Fecha de muerte
+- causeOfDeath: Causa de muerte
+- status: "DECEASED", "MISSING", "SURVIVED"
+
+LEGADO:
+- legacy: Impacto que dejó
+- memorialInfo: Info de memoriales
+- memorialUrl: Link a memorial
+- tributeCount: Contador de tributos
+
+NARRATIVA:
+- biography: Historia completa
+- lifeSummary: Resumen de vida (2-3 párrafos)
+
+IMAGEN:
+- imageUrl: Foto principal
+- imageSource: Fuente de la imagen
+- additionalPhotos: Más fotos (JSON)
+
+MODELO: CaseImpact (Impacto del Caso)
+─────────────────────────────────────
+- legislationName: Nombre de la ley
+- legislationYear: Año de la ley
+- legislationDesc: Descripción de la ley
+- foundationName: Nombre de fundación
+- foundationUrl: URL de fundación
+- foundationDesc: Qué hace la fundación
+- communityImpact: Impacto comunitario
+- awarenessEffect: Efecto en conciencia pública
+- mediaAdaptations: Películas, docs, libros (JSON)
+- proceduralChanges: Cambios en protocolos
+
+MODELO: Tribute (Tributo)
+─────────────────────────
+- victimId: A qué víctima
+- message: Mensaje del visitante
+- candle: Si encendió vela (boolean)
+- name: Nombre del visitante (opcional)
+- country: País del visitante (opcional)
+- createdAt: Fecha del tributo
+
+MODELO: TimelineEvent (Evento)
+──────────────────────────────
+- caseId: A qué caso pertenece
+- date: Fecha del evento
+- title: Título corto
+- description: Descripción
+- order: Orden en la línea
+
+MODELO: Suspect (Sospechoso)
+────────────────────────────
+- fullName: Nombre
+- aliases: Apodos
+- role: "SUSPECT", "CONFIRMED_PERPETRATOR", "PERSON_OF_INTEREST"
+- description: Descripción
+- method: Modus operandi
+- evidenceAgainst: Evidencia en su contra
+- convictionDetails: Detalles de condena
+- sentence: Sentencia
+- isConfirmed: Si está confirmado
+
+================================================================================
+REGLAS DEL BUSCADOR
+================================================================================
+
+1. BÚSQUEDA SIN TILDES
+   - Cada campo tiene una versión "Search" sin tildes
+   - "Alcàsser" → titleSearch: "alcasser"
+   - "María" → fullNameSearch: "maria"
+   - El usuario puede buscar con o sin tildes
+
+2. BÚSQUEDA CASE-INSENSITIVE
+   - "DAHMER" encuentra "Dahmer"
+   - "madeleine" encuentra "Madeleine"
+
+3. CAMPOS BUSCABLES
+   - Título del caso
+   - País y ciudad
+   - Nombre de víctimas
+   - Aliases de víctimas
+
+4. FUNCIÓN DE NORMALIZACIÓN
+   ```
+   function normalizeForSearch(text) {
+     return text
+       .toLowerCase()
+       .normalize('NFD')
+       .replace(/[\u0300-\u036f]/g, '')  // Quita tildes
+       .replace(/[^\w\s]/g, '')          // Quita caracteres especiales
+       .trim()
+   }
+   ```
+
+================================================================================
+REGLAS DE IMÁGENES
+================================================================================
+
+IMÁGENES DE CASOS:
+- Tamaño recomendado: 640x400 px
+- Formato: JPG, PNG o SVG (para placeholders)
+- Ubicación: /public/images/cases/
+- Naming: slug-del-caso.jpg (ej: crimen-alcasser.jpg)
+
+PLACEHOLDERS POR TIPO:
+- placeholder-case.svg: Genérico
+- placeholder-spain.svg: Casos de España
+- placeholder-korea.svg: Casos de Corea
+- placeholder-japan.svg: Casos de Japón
+- placeholder-paraguay.svg: Casos de Paraguay
+- placeholder-coldcase.svg: Casos fríos
+- placeholder-serial.svg: Serial killers
+- placeholder-missing.svg: Desapariciones
+- placeholder-mystery.svg: Misterios
+- placeholder-historical.svg: Casos históricos
+
+IMÁGENES DE VÍCTIMAS:
+- Tamaño: 200x200 px
+- Ubicación: /public/images/victims/
+- Naming: nombre-apellido.jpg (ej: miriam-garcia.jpg)
+
+PLACEHOLDERS DE VÍCTIMAS:
+- placeholder-female.svg: Silueta femenina
+- placeholder-male.svg: Silueta masculina
+- placeholder-child.svg: Silueta de menor
+
+REGLA IMPORTANTE:
+- NUNCA usar fotos sensacionalistas
+- NUNCA usar fotos del crimen
+- Preferir fotos de la persona sonriendo, en vida
+- Si no hay foto, usar placeholder respetuoso
+
+================================================================================
+REGLAS DE ORTOGRAFÍA Y ESCRITURA
+================================================================================
+
+1. SIEMPRE USAR TILDES CORRECTAS
+   - niña (NO nina)
+   - año (NO ano)
+   - día (NO dia)
+   - había (NO habia)
+   - policía (NO policia)
+
+2. LENGUAJE INCLUSIVO
+   - "las víctimas" o "quienes sufrieron" (NO "las mujeres que...")
+   - "eran parte de una familia" (NO "eran hijas, madres...")
+   - Incluir pronombres neutros cuando sea posible
+
+3. TONO RESPETUOSO
+   - Evitar palabras sensacionalistas
+   - No dramatizar innecesariamente
+   - Enfocarse en la humanidad de las víctimas
+
+4. NOMBRES CORRECTOS
+   - Verificar ortografía de nombres propios
+   - Usar apellidos con tildes correctas (García, Martínez, López)
+
+================================================================================
+TIPOS DE CASOS SOPORTADOS
+================================================================================
+
+1. HOMICIDE (Homicidio)
+   - Asesinatos individuales
+   - Casos resueltos o sin resolver
+
+2. DISAPPEARANCE (Desaparición)
+   - Personas desaparecidas
+   - Con o sin cuerpo encontrado
+
+3. SERIAL_KILLER (Asesino en Serie)
+   - Múltiples víctimas
+   - Un solo perpetrador o grupo
+
+4. COLD_CASE (Caso Frío)
+   - Sin resolver por muchos años
+   - Investigación estancada
+
+5. KIDNAPPING (Secuestro)
+   - Secuestros con o sin rescate
+   - Con cualquier desenlace
+
+6. OTHER (Otro)
+   - Casos que no encajan en otras categorías
+   - Supervivientes, casos especiales
+
+================================================================================
+ESTADOS DE VÍCTIMAS
+================================================================================
+
+1. DECEASED (Fallecida)
+   - La víctima murió
+
+2. MISSING (Desaparecida)
+   - Nunca se encontró
+   - Estado desconocido
+
+3. SURVIVED (Sobrevivió)
+   - Víctima que sobrevivió al ataque
+   - Ejemplo: Nayoung, Bryan Hartnell
+
+================================================================================
+CASOS ACTUALES EN LA BASE DE DATOS (35 casos)
+================================================================================
+
+ESPAÑA:
+- crimen-alcasser (Alcàsser)
+- caso-diana-quer
+- marta-del-castillo
+- caso-asunta-basterra
+- caso-gabriel-cruz
+- yeremi-vargas
+- anabel-segura
+- nino-buzon-almeria
+
+ESTADOS UNIDOS:
+- dalia-negra (Black Dahlia)
+- jonbenet-ramsey
+- natalee-holloway
+- laci-peterson
+- caylee-anthony
+- amy-mihaljevic
+- chandra-levy
+- maura-murray
+- tammy-lynn-leppert
+- delphi-murders
+- jeffrey-dahmer
+- john-wayne-gacy
+- ted-bundy
+- zodiac-killer
+
+INTERNACIONAL:
+- madeleine-mccann (Portugal/UK)
+- caso-paulette (México)
+- maria-marta-garcia-belsunce (Argentina)
+- caso-elisa-lam (Canadá)
+- meredith-kercher (Italia)
+- emanuela-orlandi (Vaticano)
+- jack-el-destripador (UK histórico)
+- oriel-briant (Argentina)
+- solange-grabenheimer (Argentina)
+- cecilia-cubas (Paraguay)
+- caso-nayoung (Corea del Sur)
+- asesino-hwaseong (Corea del Sur)
+- junko-furuta (Japón)
+
+================================================================================
+CÓMO AÑADIR UN NUEVO CASO
+================================================================================
+
+PASO 1: Crear el caso en la base de datos
+```typescript
+await prisma.case.create({
+  data: {
+    slug: 'nombre-del-caso',
+    title: 'Título del Caso',
+    titleSearch: normalizeForSearch('Título del Caso'),
+    summary: 'Resumen corto...',
+    status: 'SOLVED' o 'UNSOLVED',
+    type: 'HOMICIDE', 'DISAPPEARANCE', etc.,
+    year: 2024,
+    country: 'País',
+    countrySearch: normalizeForSearch('País'),
+    city: 'Ciudad',
+    citySearch: normalizeForSearch('Ciudad'),
+    mainImageUrl: '/images/cases/nombre-caso.jpg',
+    content: `## Historia completa en markdown...`,
+    victims: {
+      create: [
+        {
+          fullName: 'Nombre de Víctima',
+          fullNameSearch: normalizeForSearch('Nombre'),
+          // ... todos los campos de víctima
+        }
+      ]
+    },
+    timelineEvents: {
+      create: [
+        { date: new Date('2024-01-01'), title: 'Evento', description: '...', order: 1 }
+      ]
+    }
+  }
+})
+```
+
+PASO 2: Añadir datos de impacto
+```typescript
+await prisma.caseImpact.create({
+  data: {
+    caseId: caso.id,
+    legislationName: 'Nombre de Ley',
+    legislationYear: 2024,
+    legislationDesc: 'Qué hace la ley...',
+    communityImpact: 'Cómo afectó a la comunidad...',
+    // ... más campos
+  }
+})
+```
+
+PASO 3: Añadir imagen
+- Colocar imagen en /public/images/cases/
+- O usar placeholder existente
+
+PASO 4: Verificar ortografía
+- Ejecutar script de corrección ortográfica
+
+================================================================================
+SCRIPTS ÚTILES CREADOS
+================================================================================
+
+UBICACIÓN: /prisma/
+
+check-impacts.ts        → Ver qué casos tienen/faltan impacto
+check-all-victims.ts    → Ver qué víctimas tienen info completa
+fix-ortografia.ts       → Corregir tildes en toda la BD
+populate-search-fields.ts → Llenar campos de búsqueda
+add-new-cases.ts        → Template para añadir casos nuevos
+
+CÓMO EJECUTAR:
+```bash
+cd casos-reales
+npx tsx prisma/nombre-del-script.ts
+```
+
+================================================================================
+TECNOLOGÍAS Y VERSIONES
+================================================================================
+
+- Next.js: 16.1.1
+- React: 19
+- TypeScript: 5
+- Tailwind CSS: 4
+- Prisma: 5.22.0
+- SQLite: Base de datos local (dev.db)
+- Node.js: 18+ recomendado
+
+================================================================================
+COMANDOS ÚTILES
+================================================================================
+
+# Iniciar servidor de desarrollo
+npm run dev
+
+# Actualizar base de datos después de cambiar schema
+npx prisma db push
+
+# Regenerar cliente de Prisma
+npx prisma generate
+
+# Ver base de datos en navegador
+npx prisma studio
+
+# Ejecutar script de Prisma
+npx tsx prisma/nombre-script.ts
+
+================================================================================
+CONTACTO Y CRÉDITOS
+================================================================================
+
+Proyecto creado con la ayuda de Claude (Anthropic)
+Enero 2025
+
+Si necesitas recrear o continuar este proyecto, usa este documento
+como guía. Contiene todas las decisiones de diseño y reglas que seguimos.
+
+================================================================================
+                         FIN DEL DOCUMENTO
+================================================================================

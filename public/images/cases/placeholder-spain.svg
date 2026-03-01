@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400">
+  <rect width="640" height="400" fill="#1a1a2e"/>
+  <rect x="260" y="100" width="120" height="80" fill="#c60b1e"/>
+  <rect x="260" y="180" width="120" height="20" fill="#ffc400"/>
+  <rect x="260" y="200" width="120" height="80" fill="#c60b1e"/>
+  <text x="320" y="320" font-family="Arial, sans-serif" font-size="18" fill="#e94560" text-anchor="middle">CASO EN ESPANA</text>
+  <text x="320" y="345" font-family="Arial, sans-serif" font-size="12" fill="#888" text-anchor="middle">Imagen no disponible</text>
+</svg>

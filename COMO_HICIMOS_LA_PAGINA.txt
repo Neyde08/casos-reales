@@ -1,0 +1,373 @@
+================================================================================
+         CÓMO HICIMOS LA PÁGINA WEB DE CASOS REALES - PASO A PASO
+              (Explicado como si fueras un niño curioso)
+================================================================================
+
+¡Hola! Te voy a contar cómo construimos esta página web sobre casos reales.
+Es como construir una casa de LEGO, pero en vez de bloques, usamos código.
+
+================================================================================
+PARTE 1: ¿QUÉ ES ESTA PÁGINA?
+================================================================================
+
+Imagina que tienes un álbum de fotos, pero en vez de fotos de vacaciones,
+tiene historias de personas que merecen ser recordadas. Esta página es como
+ese álbum, pero en internet.
+
+La página se llama "Casos Reales" y es especial porque:
+- No nos enfocamos en los "malos" (los criminales)
+- Nos enfocamos en las VÍCTIMAS (las personas que sufrieron)
+- Queremos que la gente las recuerde como eran: personas con sueños y familias
+
+================================================================================
+PARTE 2: LAS HERRAMIENTAS QUE USAMOS
+================================================================================
+
+Para construir una casa necesitas martillo, clavos y madera.
+Para construir una página web necesitas:
+
+1. NEXT.JS (versión 16)
+   - Es como el plano de la casa
+   - Le dice a la computadora cómo organizar todo
+   - Hace que la página sea rápida y bonita
+
+2. REACT (versión 19)
+   - Es como los ladrillos de LEGO
+   - Cada parte de la página (botones, menús, tarjetas) es un "componente"
+   - Podemos reutilizar los mismos ladrillos en diferentes lugares
+
+3. TYPESCRIPT
+   - Es como un supervisor que revisa que todo esté bien escrito
+   - Si cometes un error, te avisa antes de que la página se rompa
+
+4. TAILWIND CSS (versión 4)
+   - Es como la pintura y decoración
+   - Hace que la página se vea bonita con colores y espacios
+
+5. PRISMA + SQLITE
+   - Es como un archivero gigante donde guardamos toda la información
+   - SQLite es el archivero
+   - Prisma es el asistente que nos ayuda a buscar y guardar cosas
+
+================================================================================
+PARTE 3: ¿CÓMO ORGANIZAMOS TODO?
+================================================================================
+
+Imagina que tu cuarto tiene cajones para diferentes cosas:
+- Un cajón para calcetines
+- Un cajón para camisetas
+- Un cajón para juguetes
+
+Nuestra página tiene carpetas para diferentes cosas:
+
+📁 casos-reales/
+│
+├── 📁 src/                    (Aquí vive todo el código principal)
+│   ├── 📁 app/                (Las páginas que ves en el navegador)
+│   │   ├── 📄 page.tsx        (La página principal)
+│   │   ├── 📁 casos/          (Donde están todos los casos)
+│   │   ├── 📁 buscar/         (El buscador)
+│   │   └── 📁 api/            (El "cerebro" que procesa datos)
+│   │
+│   ├── 📁 components/         (Piezas reutilizables como botones)
+│   └── 📁 lib/                (Herramientas auxiliares)
+│
+├── 📁 prisma/                 (Todo sobre la base de datos)
+│   ├── 📄 schema.prisma       (El "mapa" de nuestra base de datos)
+│   └── 📄 dev.db              (La base de datos real)
+│
+└── 📁 public/                 (Imágenes y archivos públicos)
+    └── 📁 images/
+
+================================================================================
+PARTE 4: LA BASE DE DATOS - DONDE GUARDAMOS TODO
+================================================================================
+
+Imagina que tienes fichas de colección de tus personajes favoritos.
+Cada ficha tiene información organizada:
+
+FICHA DE UN CASO:
+┌─────────────────────────────────────┐
+│ Título: El Crimen de Alcàsser      │
+│ País: España                        │
+│ Año: 1992                           │
+│ Estado: RESUELTO                    │
+│ Tipo: HOMICIDIO                     │
+│ Resumen: Tres chicas fueron...      │
+└─────────────────────────────────────┘
+
+FICHA DE UNA VÍCTIMA:
+┌─────────────────────────────────────┐
+│ Nombre: Miriam García Iborra        │
+│ Edad: 14 años                       │
+│ Personalidad: Era alegre y...       │
+│ Sueños: Quería ser veterinaria...   │
+│ Familia: Sus padres la adoraban...  │
+│ Lo que le gustaba: La música y...   │
+└─────────────────────────────────────┘
+
+Estas "fichas" en programación se llaman MODELOS.
+Tenemos varios modelos:
+
+- Case (Caso): La información general del crimen
+- Victim (Víctima): Información de cada persona afectada
+- TimelineEvent (Línea de tiempo): Qué pasó y cuándo
+- Suspect (Sospechoso): Información de los acusados
+- Evidence (Evidencia): Pruebas del caso
+- Tribute (Tributo): Mensajes de visitantes para las víctimas
+- CaseImpact (Impacto): Cómo el caso cambió leyes o la sociedad
+
+================================================================================
+PARTE 5: LO QUE HICIMOS JUNTOS - PASO A PASO
+================================================================================
+
+PASO 1: MEJORAR LA SECCIÓN "IN MEMORIAM"
+─────────────────────────────────────────
+Antes: Había muchas fotos de víctimas juntas (se veía abrumador)
+Después: Pusimos un mensaje bonito y reflexivo:
+
+   "Merecen ser recordados por quiénes fueron, no por lo que les hicieron.
+    Eran parte de una familia, tenían amigos que los querían.
+    No son casos. Son personas."
+
+También lo hicimos INCLUSIVO (para hombres y mujeres, no solo mujeres).
+
+
+PASO 2: CREAR EL SISTEMA DE TRIBUTOS
+─────────────────────────────────────────
+¿Qué es? Un lugar donde los visitantes pueden "encender una vela virtual"
+y dejar un mensaje para recordar a las víctimas.
+
+Creamos:
+- Una tabla en la base de datos para guardar los tributos
+- Un componente visual con velitas animadas
+- Un formulario para dejar mensajes
+
+
+PASO 3: CREAR EL SISTEMA DE IMPACTO
+─────────────────────────────────────────
+¿Qué es? Una sección que muestra cómo cada caso cambió el mundo:
+- ¿Se crearon nuevas leyes? (Ej: Ley Megan, Alerta Amber)
+- ¿Se crearon fundaciones?
+- ¿Hicieron películas o documentales?
+- ¿Cambió la forma en que trabaja la policía?
+
+
+PASO 4: AÑADIR HISTORIAS DE VIDA A TODAS LAS VÍCTIMAS
+─────────────────────────────────────────
+Este fue un trabajo GRANDE. Cada víctima ahora tiene:
+- Su personalidad (cómo era)
+- Sus pasatiempos (qué le gustaba hacer)
+- Sus sueños (qué quería ser de grande)
+- Su familia (quiénes la querían)
+- Un resumen de su vida
+
+Hicimos esto para:
+- 17 víctimas de Jeffrey Dahmer
+- 11 víctimas de John Wayne Gacy
+- 30 víctimas de Ted Bundy
+- 5 víctimas de Jack el Destripador
+- 7 víctimas del Zodiac
+- 2 víctimas de Delphi
+- Y muchos casos individuales más (Madeleine McCann, Alcàsser, etc.)
+
+¡En total, más de 100 víctimas ahora tienen su historia!
+
+
+PASO 5: MEJORAR EL BUSCADOR
+─────────────────────────────────────────
+PROBLEMA: Si escribías "alcasser" no encontraba "Alcàsser"
+          porque la computadora veía las tildes como letras diferentes.
+
+SOLUCIÓN: Creamos un "traductor" que quita los acentos para buscar:
+          "Alcàsser" → "alcasser"
+          "María" → "maria"
+          "niño" → "nino"
+
+Ahora puedes buscar sin preocuparte por tildes o mayúsculas.
+
+
+PASO 6: AÑADIR NUEVOS CASOS
+─────────────────────────────────────────
+Añadimos casos de diferentes países:
+
+🇵🇾 PARAGUAY:
+   - Cecilia Cubas (hija de expresidente, secuestrada)
+
+🇰🇷 COREA DEL SUR:
+   - Caso Nayoung (niña que sobrevivió y cambió las leyes)
+   - Asesinatos de Hwaseong (el "Zodiac coreano", resuelto en 2019)
+
+🇯🇵 JAPÓN:
+   - Junko Furuta (caso que expuso fallas en justicia juvenil)
+
+🇪🇸 ESPAÑA:
+   - Niño del Buzón de Almería (caso frío sin resolver)
+
+
+PASO 7: AÑADIR IMÁGENES
+─────────────────────────────────────────
+Creamos imágenes "placeholder" (de relleno) para cada tipo de caso:
+- placeholder-korea.svg (bandera de Corea estilizada)
+- placeholder-japan.svg (círculo rojo como bandera japonesa)
+- placeholder-paraguay.svg (colores de Paraguay)
+- placeholder-coldcase.svg (estrella tenue para casos fríos)
+
+También placeholders para víctimas:
+- placeholder-female.svg (silueta femenina)
+- placeholder-male.svg (silueta masculina)
+- placeholder-child.svg (silueta de niño/a)
+
+
+PASO 8: AÑADIR DATOS DE IMPACTO A TODOS LOS CASOS
+─────────────────────────────────────────
+Cada caso ahora muestra qué cambió gracias a él:
+- Leyes creadas
+- Fundaciones
+- Películas y documentales
+- Cambios en procedimientos policiales
+
+
+PASO 9: CORREGIR LA ORTOGRAFÍA
+─────────────────────────────────────────
+Encontramos errores como "nina" en vez de "niña".
+Creamos un programa que revisó TODO y corrigió:
+- 35 casos
+- 106 víctimas
+- 32 impactos
+- 41 eventos de timeline
+
+¡Ahora todo tiene tildes correctas!
+
+================================================================================
+PARTE 6: ARCHIVOS IMPORTANTES QUE CREAMOS
+================================================================================
+
+En la carpeta "prisma/" creamos muchos scripts:
+
+📄 seed.ts                    → Datos iniciales de casos
+📄 update-dahmer-victims.ts   → Historias de víctimas de Dahmer
+📄 update-bundy-victims.ts    → Historias de víctimas de Bundy
+📄 update-gacy-victims.ts     → Historias de víctimas de Gacy
+📄 update-remaining-victims.ts → Historias de todas las demás víctimas
+📄 add-new-cases.ts           → Añadir casos nuevos (Nayoung, etc.)
+📄 add-all-impacts.ts         → Datos de impacto de todos los casos
+📄 add-remaining-impacts.ts   → Impacto de los casos que faltaban
+📄 populate-search-fields.ts  → Llenar campos de búsqueda sin tildes
+📄 fix-ortografia.ts          → Corregir errores de ortografía
+
+================================================================================
+PARTE 7: CÓMO FUNCIONA LA BÚSQUEDA (EJEMPLO SENCILLO)
+================================================================================
+
+Imagina que tienes una caja de crayones con nombres:
+- "Rojo"
+- "Azúl" (con tilde mal puesta)
+- "Verde"
+
+Si buscas "azul" (sin tilde), no encontrarías "Azúl".
+
+SOLUCIÓN:
+Creamos una "copia secreta" de cada nombre sin tildes:
+- "Rojo" → copia secreta: "rojo"
+- "Azúl" → copia secreta: "azul"
+- "Verde" → copia secreta: "verde"
+
+Cuando buscas "azul", la computadora busca en las copias secretas,
+¡y así encuentra "Azúl" aunque escribas sin tilde!
+
+En el código esto se ve así:
+
+    function normalizeForSearch(text) {
+      return text
+        .toLowerCase()           // "HOLA" → "hola"
+        .normalize('NFD')        // Separa las tildes
+        .replace(/tildes/g, '') // Quita las tildes
+    }
+
+================================================================================
+PARTE 8: NÚMEROS FINALES
+================================================================================
+
+Lo que tiene la página ahora:
+
+📊 35 casos documentados
+👤 106 víctimas con historias completas
+📅 Líneas de tiempo para cada caso
+⚖️ Datos de impacto social y legal
+🕯️ Sistema de tributos para visitantes
+🔍 Buscador inteligente (sin importar tildes)
+🌍 Casos de: España, USA, México, UK, Portugal, Italia, Corea, Japón, Paraguay
+
+================================================================================
+PARTE 9: CONSEJOS SI QUIERES APRENDER A PROGRAMAR
+================================================================================
+
+1. EMPIEZA PEQUEÑO
+   No intentes hacer una página enorme al principio.
+   Empieza con algo simple como "Hola Mundo".
+
+2. LEE EL CÓDIGO DE OTROS
+   Es como leer libros para aprender a escribir.
+   Mira cómo otros programadores resuelven problemas.
+
+3. NO TENGAS MIEDO DE LOS ERRORES
+   Los errores son tus amigos. Te enseñan qué está mal.
+   Hasta los programadores expertos cometen errores todo el tiempo.
+
+4. USA HERRAMIENTAS QUE TE AYUDEN
+   - VS Code (editor de código)
+   - GitHub (para guardar tu código)
+   - ChatGPT o Claude (para preguntar dudas)
+
+5. PRACTICA TODOS LOS DÍAS
+   Aunque sea 15 minutos. La práctica hace al maestro.
+
+================================================================================
+PARTE 10: GLOSARIO (PALABRAS RARAS EXPLICADAS)
+================================================================================
+
+API: Application Programming Interface
+     Es como un mesero en un restaurante. Tú le pides algo (datos)
+     y él va a la cocina (servidor) a buscarlo y te lo trae.
+
+Base de datos: Un archivero digital donde guardamos información organizada.
+
+Componente: Una pieza de LEGO del código. Un botón, un menú, una tarjeta.
+
+Framework: Un conjunto de herramientas ya hechas que te facilitan el trabajo.
+           Next.js es un framework.
+
+Frontend: La parte de la página que VES (colores, botones, texto).
+
+Backend: La parte de la página que NO ves (servidores, bases de datos).
+
+JSON: Una forma de escribir datos que las computadoras entienden fácil.
+      Ejemplo: { "nombre": "Juan", "edad": 10 }
+
+Placeholder: Una imagen o texto temporal mientras no tenemos el real.
+
+Query: Una pregunta que le hacemos a la base de datos.
+       "Dame todos los casos de España" es una query.
+
+Schema: El "mapa" que describe cómo está organizada la base de datos.
+
+Script: Un programa pequeño que hace una tarea específica.
+
+Slug: Una versión "amigable" de un título para usar en URLs.
+      "El Crimen de Alcàsser" → "crimen-alcasser"
+
+================================================================================
+                              ¡FIN!
+================================================================================
+
+Espero que esta explicación te haya ayudado a entender cómo hicimos
+esta página web. Recuerda: todo lo que ves en internet fue construido
+por personas como tú y yo, línea por línea de código.
+
+¡Tú también puedes aprender a programar si te lo propones!
+
+Creado con cariño,
+Claude (tu asistente de programación) 🤖
+
+================================================================================

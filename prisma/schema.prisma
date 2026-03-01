@@ -1,0 +1,244 @@
+// Prisma schema for "Casos Reales" - True Crime Database
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// Case status enum (stored as string in SQLite)
+// Values: SOLVED, UNSOLVED
+
+// Case types/categories
+// Values: HOMICIDE, DISAPPEARANCE, SERIAL_KILLER, COLD_CASE, KIDNAPPING, OTHER
+
+model Case {
+  id           String   @id @default(cuid())
+  slug         String   @unique
+  title        String
+  titleSearch  String?  // Normalizado para busqueda (sin acentos, minusculas)
+  summary      String
+  status       String   // SOLVED or UNSOLVED
+  type         String   // Category of crime
+  year         Int
+  country      String
+  countrySearch String? // Normalizado para busqueda
+  city         String?
+  citySearch   String?  // Normalizado para busqueda
+  mainImageUrl String?
+  gallery      String?  // JSON array of image URLs
+  tags         String?  // JSON array of tags
+  content      String?  // Full narrative content (markdown)
+  viewCount    Int      @default(0)
+  featured     Boolean  @default(false)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  // Relations
+  victims        Victim[]
+  timelineEvents TimelineEvent[]
+  suspects       Suspect[]
+  evidences      Evidence[]
+  sources        Source[]
+  impact         CaseImpact?
+
+  @@index([status])
+  @@index([type])
+  @@index([year])
+  @@index([country])
+  @@index([featured])
+}
+
+model Victim {
+  id                   String   @id @default(cuid())
+  caseId               String
+
+  // === IDENTIDAD BÁSICA ===
+  fullName             String
+  fullNameSearch       String?  // Normalizado para busqueda (sin acentos, minusculas)
+  aliases              String?  // JSON array - apodos cariñosos
+  birthDate            DateTime?
+  birthPlace           String?
+  nationality          String?
+
+  // === FAMILIA ===
+  parents              String?  // Nombres de los padres
+  parentsOccupation    String?  // Ocupación de los padres
+  siblings             String?  // Hermanos (nombres y edades)
+  familyInfo           String?  // Información adicional de familia
+  familyBackground     String?  // Contexto familiar, historia
+
+  // === EDUCACIÓN Y TRABAJO ===
+  education            String?  // Estudios, escuela, universidad
+  educationDetails     String?  // Detalles: materias favoritas, logros académicos
+  occupation           String?  // Trabajo/ocupación
+  workplaceInfo        String?  // Dónde trabajaba, ambiente laboral
+  careerDreams         String?  // Aspiraciones profesionales
+
+  // === PERSONALIDAD Y VIDA ===
+  personality          String?  // Cómo era como persona, su carácter
+  physicalDescription  String?  // Descripción física
+  hobbies              String?  // Pasatiempos, actividades que disfrutaba
+  talents              String?  // Talentos especiales (música, arte, deportes)
+  favoriteThings       String?  // Comida, música, películas, lugares favoritos
+  dreams               String?  // Sueños y aspiraciones en la vida
+  accomplishments      String?  // Logros importantes en su vida
+
+  // === VIDA SOCIAL ===
+  socialLife           String?  // Vida social, círculo de amigos
+  bestFriends          String?  // Mejores amigos
+  relationship         String?  // Relación sentimental (novio/a, esposo/a)
+  pets                 String?  // Mascotas
+
+  // === CITAS Y TESTIMONIOS ===
+  friendsQuotes        String?  // JSON array - Citas de amigos/familia sobre la víctima
+  familyQuotes         String?  // JSON array - Citas de familiares
+  teacherQuotes        String?  // Citas de profesores/mentores
+
+  // === ÚLTIMO DÍA / DESAPARICIÓN ===
+  lastSeenDate         DateTime?
+  lastSeenPlace        String?
+  lastSeenDetails      String?  // Detalles del último día: qué hizo, con quién habló
+  lastSeenWearing      String?  // Qué ropa llevaba
+  lastKnownActivities  String?  // Últimas actividades conocidas
+
+  // === MUERTE / ESTADO ===
+  ageAtDeathOrMissing  Int?
+  deathDate            DateTime?
+  causeOfDeath         String?
+  status               String   // DECEASED, MISSING, SURVIVED
+
+  // === LEGADO ===
+  legacy               String?  // Impacto que dejó, cómo la recuerdan
+  memorialInfo         String?  // Información sobre memoriales, fundaciones
+  memorialUrl          String?  // Link a memorial o fundación en su nombre
+  tributeCount         Int      @default(0)  // Personas que la recuerdan/homenajes
+
+  // === NARRATIVA COMPLETA ===
+  biography            String?  // Historia de vida completa (texto largo)
+  lifeSummary          String?  // Resumen breve de quién era (2-3 párrafos)
+
+  // === IMAGEN ===
+  imageUrl             String?
+  imageSource          String?  // Fuente de la imagen (medio/publicación)
+  additionalPhotos     String?  // JSON array - URLs de fotos adicionales
+
+  case     Case      @relation(fields: [caseId], references: [id], onDelete: Cascade)
+  tributes Tribute[]
+
+  @@index([caseId])
+  @@index([fullName])
+}
+
+model TimelineEvent {
+  id          String   @id @default(cuid())
+  caseId      String
+  date        DateTime
+  title       String
+  description String?
+  order       Int      @default(0)
+
+  case Case @relation(fields: [caseId], references: [id], onDelete: Cascade)
+
+  @@index([caseId])
+  @@index([date])
+}
+
+model Suspect {
+  id                String  @id @default(cuid())
+  caseId            String
+  fullName          String
+  aliases           String? // JSON array
+  role              String  // SUSPECT, CONFIRMED_PERPETRATOR, PERSON_OF_INTEREST
+  description       String?
+  method            String? // Modus Operandi
+  pattern           String? // Recurring patterns
+  evidenceAgainst   String? // Evidence linked to suspect
+  convictionDetails String?
+  sentence          String?
+  imageUrl          String?
+  isConfirmed       Boolean @default(false)
+
+  case Case @relation(fields: [caseId], references: [id], onDelete: Cascade)
+
+  @@index([caseId])
+}
+
+model Evidence {
+  id               String @id @default(cuid())
+  caseId           String
+  title            String
+  description      String?
+  type             String // PHYSICAL, TESTIMONIAL, DIGITAL, FORENSIC, DOCUMENTARY
+  credibilityScore Int?   // 1-5 scale
+  imageUrl         String?
+
+  case Case @relation(fields: [caseId], references: [id], onDelete: Cascade)
+
+  @@index([caseId])
+}
+
+model Source {
+  id             String   @id @default(cuid())
+  caseId         String
+  title          String
+  url            String?
+  publisher      String?
+  date           DateTime?
+  reliabilityTag String?  // HIGH, MEDIUM, LOW
+
+  case Case @relation(fields: [caseId], references: [id], onDelete: Cascade)
+
+  @@index([caseId])
+}
+
+// ============================================
+// TRIBUTOS - Homenajes de visitantes a víctimas
+// ============================================
+model Tribute {
+  id        String   @id @default(cuid())
+  victimId  String
+  message   String?              // Mensaje opcional de homenaje
+  candle    Boolean  @default(true)  // "Encender vela virtual"
+  name      String?              // Nombre del visitante (opcional)
+  country   String?              // País de origen del tributo
+  createdAt DateTime @default(now())
+
+  victim Victim @relation(fields: [victimId], references: [id], onDelete: Cascade)
+
+  @@index([victimId])
+  @@index([createdAt])
+}
+
+// ============================================
+// IMPACTO DEL CASO - Legado social y legal
+// ============================================
+model CaseImpact {
+  id              String  @id @default(cuid())
+  caseId          String  @unique
+
+  // Impacto legislativo
+  legislationName String?           // Nombre de la ley: "Ley Megan", "Alerta Amber"
+  legislationYear Int?              // Año de aprobación
+  legislationDesc String?           // Descripción de qué hace la ley
+
+  // Fundaciones y organizaciones
+  foundationName  String?           // Fundación creada en memoria
+  foundationUrl   String?           // URL de la fundación
+  foundationDesc  String?           // Qué hace la fundación
+
+  // Impacto en la comunidad
+  communityImpact String?           // Descripción del impacto comunitario
+  awarenessEffect String?           // Efecto en concientización pública
+
+  // Adaptaciones mediáticas
+  mediaAdaptations String?          // JSON array: películas, documentales, libros, podcasts
+
+  // Cambios en procedimientos
+  proceduralChanges String?         // Cambios en protocolos policiales/judiciales
+
+  case Case @relation(fields: [caseId], references: [id], onDelete: Cascade)
+}

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400">
+  <rect width="640" height="400" fill="#1a1a2e"/>
+  <path d="M320 100 L340 180 L420 180 L355 225 L380 305 L320 260 L260 305 L285 225 L220 180 L300 180 Z" fill="none" stroke="#e94560" stroke-width="2" opacity="0.5"/>
+  <text x="320" y="340" font-family="Arial, sans-serif" font-size="14" fill="#e94560" text-anchor="middle">CASO FRIO</text>
+  <text x="320" y="360" font-family="Arial, sans-serif" font-size="11" fill="#888" text-anchor="middle">Sin resolver</text>
+</svg>

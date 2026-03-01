@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400">
+  <rect width="640" height="400" fill="#1a1a2e"/>
+  <rect x="270" y="120" width="100" height="140" rx="5" fill="#16213e" stroke="#e94560" stroke-width="2"/>
+  <circle cx="320" cy="165" r="25" fill="#0f3460"/>
+  <rect x="290" y="200" width="60" height="40" fill="#0f3460"/>
+  <text x="320" y="300" font-family="Arial, sans-serif" font-size="18" fill="#e94560" text-anchor="middle">CASO CRIMINAL</text>
+  <text x="320" y="325" font-family="Arial, sans-serif" font-size="12" fill="#888" text-anchor="middle">Imagen no disponible</text>
+</svg>
